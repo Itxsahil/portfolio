@@ -1,0 +1,167 @@
+/* styles.css */
+* {
+  margin: 0;
+  padding: 0;
+}
+/* Add the initial blur effect to the whole page */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  line-height: 1.6;
+  filter: blur(10px); /* Initially blur the page */
+  transition: filter 1s ease; /* Smooth transition for removing the blur */
+}
+
+/* After the page loads, remove the blur */
+body.loaded {
+  filter: blur(0); /* Clear the blur */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+header h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+header p {
+  margin: 10px 0;
+}
+
+header ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+header ul li {
+  margin: 5px 0;
+}
+
+header a {
+  color: #00bcd4;
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.social-links a img {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) invert(1);
+}
+.social-links a svg {
+  width: 24px;
+  height: 24px;
+  color: #ffffff; /* Make icons white on dark background */
+}
+
+.social-links a {
+  display: inline-block;
+  color: #ffffff; /* Default icon color */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.2); /* Slightly enlarge the icon */
+  color: #00bcd4; /* Change color on hover */
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%; /* Position above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333; /* Tooltip background color */
+  color: #fff; /* Tooltip text color */
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.tooltip:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.projects,
+.contributions {
+  margin-bottom: 30px;
+}
+
+.projects h2,
+.contributions h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.projects ul,
+.contributions ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.projects li,
+.contributions li {
+  margin: 10px 0;
+}
+
+.projects span {
+  color: #00ff00;
+}
+
+.contributions a {
+  color: #ff4081;
+  text-decoration: none;
+}
+
+.contributions a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+    margin-top: 15px;
+  }
+}
