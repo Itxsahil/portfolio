@@ -347,7 +347,7 @@
               </script>
 
               <div id="canvas-container z-10">
-                <canvas id="myCanvas" width="500" height="500"></canvas>
+                <canvas id="myCanvas" class="" width="500" height="500"></canvas>
               </div>
 
               <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -355,7 +355,8 @@
                 const canvas = document.getElementById("myCanvas");
                 const scene = new THREE.Scene();
                 const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
-                const renderer = new THREE.WebGLRenderer({ canvas });
+                const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+                renderer.setClearColor(0x000000, 0); // Set background to transparent
 
                 const particleCount = 100000;
                 const radius = 1.5;
